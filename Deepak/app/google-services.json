@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "364889823069",
+    "project_id": "deepak-kaligotla",
+    "storage_bucket": "deepak-kaligotla.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364889823069:android:05e6d1b8ee4ce7a803bab4",
+        "android_client_info": {
+          "package_name": "in.kaligotla.deepak"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364889823069-7im56t9hrccj66k8n0kinn2vqsku17cb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.kaligotla.deepak",
+            "certificate_hash": "8b92c1f922a3248c364cec3de603586f1799f9ab"
+          }
+        },
+        {
+          "client_id": "364889823069-uidjonn0lfcn5uft6uftqm2n48cdo8fo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.kaligotla.deepak",
+            "certificate_hash": "c866ecc4b66a22b681d0a5d5c0f0b56b93f079b1"
+          }
+        },
+        {
+          "client_id": "364889823069-hj3143d5lfne6qkcroi69gpvlevmu726.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2uO9pj23ANXX3hkQ_2hUPgZ2twuSQ90o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364889823069-hj3143d5lfne6qkcroi69gpvlevmu726.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

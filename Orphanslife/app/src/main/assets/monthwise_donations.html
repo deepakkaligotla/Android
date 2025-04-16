@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.arrayToDataTable([
+                    ['Year & Month', 'Donations', { role: 'style'}],
+                        [new Date(Android.getJanDonationYear(), Android.getJanDonationMonth()), Android.getJanDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getFebDonationYear(), Android.getFebDonationMonth()), Android.getFebDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getMarDonationYear(), Android.getMarDonationMonth()), Android.getMarDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getAprDonationYear(), Android.getAprDonationMonth()), Android.getAprDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getMayDonationYear(), Android.getMayDonationMonth()), Android.getMayDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getJunDonationYear(), Android.getJunDonationMonth()), Android.getJunDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getJulDonationYear(), Android.getJulDonationMonth()), Android.getJulDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getAugDonationYear(), Android.getAugDonationMonth()), Android.getAugDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getSepDonationYear(), Android.getSepDonationMonth()), Android.getSepDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getOctDonationYear(), Android.getOctDonationMonth()), Android.getOctDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getNovDonationYear(), Android.getNovDonationMonth()), Android.getNovDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5'],
+                        [new Date(Android.getDecDonationYear(), Android.getDecDonationMonth()), Android.getDecDonations(), 'stroke-color: #703593; stroke-opacity: 0.6; stroke-width: 8; fill-color: #C5A5CF; fill-opacity: 0.5']
+                    ]);
+
+            var view = new google.visualization.DataView(data);
+            var formatter = new google.visualization.NumberFormat({prefix: "\u20B9"});
+
+            var options = {
+                chart: {
+                    title: 'MonthWise Donations'
+                },
+                bars: 'vertical',
+                hAxis: {
+                    title: 'Year & Month',
+                    format: 'MMM YY',
+                    viewWindowMode: 'explicit',
+                    gridlines: {
+                        units: {
+                            months: {
+                                format: ['mm']
+                            },
+                        }
+                    },
+                    minorGridlines: {
+                        units: {
+                            days: {
+                                format: ['dd']
+                            },
+                        }
+                    }
+                },
+                vAxis: {
+                    format: formatter,
+                    title: 'Donations',
+                },
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
+            chart.draw(view, options);
+        }
+    </script>
+</head>
+
+<body style="background-color:#B3FF37;">
+<div id="chart" style="width: 500px; height: 100%;"></div>
+</body>
+
+</html>

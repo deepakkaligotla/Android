@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="one">1</integer>
+    <integer name="two">2</integer>
+    <integer name="three">3</integer>
+
+    <integer-array name="numbers">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </integer-array>
+</resources>

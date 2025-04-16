@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/group_note_actions"
+        android:checkableBehavior="none"
+        android:enabled="true"
+        android:visible="true">
+        <item
+            android:id="@+id/action_add"
+            android:title="Add Note"
+            android:icon="@android:drawable/ic_input_add"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/action_toggle_archived"
+            android:title="Show Archived"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_sync"
+            android:title="Sync Notes"
+            android:icon="@android:drawable/ic_popup_sync"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_more"
+            android:title="More Actions"
+            app:showAsAction="never">
+            <menu>
+                <item
+                    android:id="@+id/action_export"
+                    android:title="Export Notes"
+                    android:icon="@android:drawable/ic_menu_save" />
+                <item
+                    android:id="@+id/action_settings"
+                    android:title="Settings"
+                    android:icon="@android:drawable/ic_menu_preferences" />
+            </menu>
+        </item>
+
+    </group>
+</menu>

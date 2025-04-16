@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "657445496316",
+    "project_id": "orphanslife-f1756",
+    "storage_bucket": "orphanslife-f1756.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657445496316:android:8cd8d05758b4d37f38be79",
+        "android_client_info": {
+          "package_name": "com.kaligotla.oms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657445496316-ise9khflf6oe6riib92q61ut61i40s0h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kaligotla.oms",
+            "certificate_hash": "8b92c1f922a3248c364cec3de603586f1799f9ab"
+          }
+        },
+        {
+          "client_id": "657445496316-u72djltvrk186b3htm3mmhh14srf1vu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEeRk3WeaoSmaMXD40RioQAh4FT9oi-xM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657445496316-u72djltvrk186b3htm3mmhh14srf1vu3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
