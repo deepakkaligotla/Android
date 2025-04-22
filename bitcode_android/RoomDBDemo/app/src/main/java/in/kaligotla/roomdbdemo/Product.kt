@@ -1,5 +1,12 @@
 package `in`.kaligotla.roomdbdemo
 
+import android.app.Service
+import android.content.BroadcastReceiver
+import android.content.ContentProvider
+import android.content.Context
+import android.content.Intent
+import android.os.IBinder
+import android.widget.Toast
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -16,3 +23,14 @@ data class Product(
 
     var price: Int
 )
+
+class MyBoundService : Service() {
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        return super.onStartCommand(intent, flags, startId)
+    }
+    override fun onBind(intent: Intent?): IBinder? {
+        TODO("Not yet implemented")
+    }
+
+}

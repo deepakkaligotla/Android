@@ -13,30 +13,24 @@ public class NoteRepository {
     private NoteDao noteDao;
     private LiveData<List<Note>> allActiveNotes;
     private LiveData<List<Note>> allNotes;
-
     public NoteRepository(Application application) {
         NoteDatabase db = NoteDatabase.getInstance(application);
         noteDao = db.noteDao();
         allActiveNotes = noteDao.getAllActiveNotes();
         allNotes = noteDao.getAllNotes();
     }
-
     public void insert(Note note) {
         Executors.newSingleThreadExecutor().execute(() -> noteDao.insert(note));
     }
-
     public void delete(Note note) {
         Executors.newSingleThreadExecutor().execute(() -> noteDao.delete(note));
     }
-
     public void update(Note note) {
         Executors.newSingleThreadExecutor().execute(() -> noteDao.update(note));
     }
-
     public LiveData<List<Note>> getAllActiveNotes() {
         return allActiveNotes;
     }
-
     public LiveData<List<Note>> getAllNotes() {
         return allNotes;
     }

@@ -202,26 +202,26 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
-        CoroutineScope(Dispatchers.IO).launch {
-            val url = URL("https://reqres.in/api/users?page=2")
-            val connection = url.openConnection() as HttpsURLConnection
-            connection.connect()
-
-            val resStringBuffer = StringBuffer()
-            val inputStream = connection.inputStream
-            val byteArray = ByteArray(1024 *3)
-            var count: Int
-            count = inputStream.read(byteArray)
-
-            while(count != -1) {
-                resStringBuffer.append(String(byteArray, 0, count))
-                count = inputStream.read(byteArray)
-            }
-            inputStream.close()
-
-            val resJsonObject = JSONObject(resStringBuffer.toString())
-            val data = resJsonObject.getJSONArray("data")
-            Log.e("", data.toString())
-         }
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val url = URL("https://reqres.in/api/users?page=2")
+//            val connection = url.openConnection() as HttpsURLConnection
+//            connection.connect()
+//
+//            val resStringBuffer = StringBuffer()
+//            val inputStream = connection.inputStream
+//            val byteArray = ByteArray(1024 *3)
+//            var count: Int
+//            count = inputStream.read(byteArray)
+//
+//            while(count != -1) {
+//                resStringBuffer.append(String(byteArray, 0, count))
+//                count = inputStream.read(byteArray)
+//            }
+//            inputStream.close()
+//
+//            val resJsonObject = JSONObject(resStringBuffer.toString())
+//            val data = resJsonObject.getJSONArray("data")
+//            Log.e("", data.toString())
+//        }
     }
 }

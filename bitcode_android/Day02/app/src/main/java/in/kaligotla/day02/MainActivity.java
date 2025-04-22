@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-
         LinearLayout container = new LinearLayout(this);
         container.setOrientation(LinearLayout.VERTICAL);
         container.setPadding(20,20,20,20);

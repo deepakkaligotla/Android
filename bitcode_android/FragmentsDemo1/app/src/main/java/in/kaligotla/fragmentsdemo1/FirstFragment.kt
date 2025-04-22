@@ -26,19 +26,19 @@ class FirstFragment : Fragment() {
         fragmentFirstBinding = FragmentFirstBinding.inflate(inflater)
         fragmentFirstBinding.edtName.addTextChangedListener {
 
-            //Way 3
-//            onNameSetListener.onNameSet(
-//                fragmentFirstBinding.edtName.text.toString()
-//            )
+//            Way 3
+            onNameSetListener.onNameSet(
+                fragmentFirstBinding.edtName.text.toString()
+            )
 
-            //Way 2
-//            (requireActivity() as MainActivity).sendDataToSecondFragment(it.toString())
+//            Way 2
+            (requireActivity() as MainActivity).sendDataToSecondFragment(it.toString())
 
-            //Way 1
-//            val secondFragment = parentFragmentManager.findFragmentById(R.id.secondFragment) as SecondFragment
-//            Log.e("tag", "${secondFragment.view}")
-//            val textView = secondFragment.view?.findViewById<TextView>(R.id.txtName)
-//            textView?.text = it?.toString()
+//            Way 1
+            val secondFragment = parentFragmentManager.findFragmentById(R.id.secondFragment) as SecondFragment
+            Log.e("tag", "${secondFragment.view}")
+            val textView = secondFragment.view?.findViewById<TextView>(R.id.txtName)
+            textView?.text = it?.toString()
         }
         return fragmentFirstBinding.root
     }

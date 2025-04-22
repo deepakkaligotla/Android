@@ -11,12 +11,10 @@ public class Note {
     @ColumnInfo(name = "text")
     public String text;
     public boolean isArchived;
-
     public Note(String text) {
         this.text = text;
         this.isArchived = false;
     }
-
     @Override
     public String toString() {
         return text;

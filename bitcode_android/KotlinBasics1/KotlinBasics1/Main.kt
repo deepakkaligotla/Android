@@ -149,11 +149,9 @@ fun arrayClasses() {
 
 fun conditions(age: Int) {
     smallLine("If Else")
-//    var legal: String = (age > 18) ? "Major" : "Minor"
-    var legal: String = if(age>18) { "Major, can vote" } else "Minor, can't vote"
-    print(legal)
-    emptyLine()
-    smallLine("when")
+    var legal: String = (age > 18) ? "Major" : "Minor"
+    var checkMajor: String = if(age>18) { "Major, can vote" } else "Minor, can't vote"
+    print(checkMajor)
     when(34) {
         in 0..35 -> print("Failed")
         in 35..69 -> print("Good")

@@ -15,16 +15,12 @@ import in.kaligotla.menudemo2.model.Note;
 public interface NoteDao {
     @Insert
     void insert(Note note);
-
     @Update
     void update(Note note);
-
     @Delete
     void delete(Note note);
-
     @Query("SELECT * FROM notes WHERE isArchived = 0")
     LiveData<List<Note>> getAllActiveNotes();
-
     @Query("SELECT * FROM notes")
     LiveData<List<Note>> getAllNotes();
 }

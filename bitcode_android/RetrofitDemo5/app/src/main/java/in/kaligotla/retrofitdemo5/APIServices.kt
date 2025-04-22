@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface APIServices {
 
     @GET("products/search")
-    suspend fun searchProduct(@Query("q") q: String): APIResponse
+    fun searchProduct(@Query("q") q: String): APIResponse
 
     companion object {
         fun getInstance(): APIServices {
