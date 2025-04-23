@@ -8,6 +8,18 @@ fun main() {
     for(num in sortArray(arrayOf(9,3,8,1,6,4,0,2,3,5))) {
         print(num)
     }
+    println()
+    println(fibonacci(5))
+    println(factorial(4))
+    println("silent & Listen ${if (isAnagram("silent", "Listen")) "- isAnagram" else "- isNotAnagram"}")
+    println(reverseString("I Love Coding"))
+    println(isPalindrome("Madam"))
+    println(isPalindrome(1252))
+    println(countVowelsConstants("Kaligotla Uma Sai Deepak"))
+    println(findCommon(intArrayOf(1,2,3), intArrayOf(2,3,4)))
+    println(mergeAndSort(intArrayOf(2,4), intArrayOf(1, 3)))
+    println(countWords("Kaligotla Uma Sai Deepak"))
+    println(diagonalSum(arrayOf(intArrayOf(1,2,3), intArrayOf(4,5,6), intArrayOf(7,8,9))))
 }
 
 fun missingNumberInSequence(arr: Array<Int>) : Int {
@@ -79,4 +91,65 @@ fun sortArray(arr: Array<Int>): Array<Int> {
         }
     }
     return inputArray
+}
+
+fun fibonacci(n: Int): List<Int> {
+    val result = mutableListOf<Int>()
+    var a = 0
+    var b = 1
+    for (i in 0 until n) {
+        result.add(a)
+        val sum = a + b
+        a = b
+        b = sum
+    }
+    return result
+}
+
+fun factorial(n: Int): Int {
+    return if(n<=1) 1 else n * factorial(n-1)
+}
+
+fun isAnagram(s1: String, s2: String): Boolean {
+    return s1.lowercase().toCharArray().sorted() == s2.lowercase().toCharArray().sorted()
+}
+
+fun reverseString(str: String): String {
+    return str.trim().split("\\s+".toRegex()).reversed().joinToString(" ")
+}
+
+fun <T> isPalindrome(input: T): Boolean {
+    val str = input.toString().lowercase()
+    return str == str.reversed()
+}
+
+fun countVowelsConstants(input: String): Pair<Int, Int> {
+    var vowels = 0
+    var constants = 0
+    for(c in input.lowercase()) {
+        if(c.isLetter()) {
+            if(c in "aeiou") vowels++ else constants++
+        }
+    }
+    return Pair(vowels, constants)
+}
+
+fun findCommon(arr1: IntArray, arr2: IntArray): Set<Int> {
+    return arr1.toSet().intersect(arr2.toSet())
+}
+
+fun mergeAndSort(arr1: IntArray, arr2: IntArray): List<Int> {
+    return (arr1 + arr2).sorted().toList()
+}
+
+fun countWords(input: String): Int {
+    return input.lowercase().trim().split("\\s+".toRegex()).size
+}
+
+fun diagonalSum(input: Array<IntArray>): Int {
+    var size = input.size
+    for(i in 0 until size) {
+
+    }
+    return 0
 }
