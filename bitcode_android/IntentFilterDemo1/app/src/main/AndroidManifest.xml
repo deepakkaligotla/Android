@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature android:name="android.software.leanback" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.IntentFilterDemo1"
+        tools:targetApi="31"
+        android:banner="@drawable/ic_launcher_background">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ALL_APPS" /> <!-- Show all installed apps -->
+                <action android:name="android.intent.action.ANSWER" /> <!-- Answer an incoming call -->
+                <action android:name="android.intent.action.APP_ERROR" /> <!-- Triggered when an app crashes -->
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES" /> <!-- Open app's preferences/settings -->
+                <action android:name="android.intent.action.ASSIST" /> <!-- Trigger the assistant (like Google Assistant) -->
+                <action android:name="android.intent.action.ATTACH_DATA" /> <!-- Attach data to a target (e.g., image to message) -->
+                <action android:name="android.intent.action.AUTO_REVOKE_PERMISSIONS" /> <!-- Permissions auto-revoked due to app inactivity -->
+                <action android:name="android.intent.action.BUG_REPORT " /> <!-- Submit a bug report -->
+                <action android:name="android.intent.action.CALL" /> <!-- Make a phone call without UI -->
+                <action android:name="android.intent.action.CALL_BUTTON" /> <!-- Triggered when call button is pressed -->
+                <action android:name="android.intent.action.CARRIER_SETUP" /> <!-- Launch carrier-specific setup app -->
+                <action android:name="android.intent.action.CHOOSER" /> <!-- Show a chooser dialog to pick an app -->
+                <action android:name="android.intent.action.CREATE_DOCUMENT" /> <!-- Create a new document using a system file picker -->
+                <action android:name="android.intent.action.CREATE_NOTE" /> <!-- Create a new note (used by note apps) -->
+                <action android:name="android.intent.action.CREATE_REMINDER" /> <!-- Create a new reminder -->
+                <action android:name="android.intent.action.CREATE_SHORTCUT" /> <!-- Create a launcher shortcut -->
+                <action android:name="android.intent.action.DEFINE" /> <!-- Define a word (dictionary intent) -->
+                <action android:name="android.intent.action.DELETE" /> <!-- Delete data or a specific content item -->
+                <action android:name="android.intent.action.DIAL" /> <!-- Open the dialer with a number pre-filled -->
+                <action android:name="android.intent.action.EDIT" /> <!-- Edit existing data (like a contact or note) -->
+                <action android:name="android.intent.action.FACTORY_TEST" /> <!-- Run a factory test mode -->
+                <action android:name="android.intent.action.GET_CONTENT" /> <!-- Pick a piece of content (like image, file, etc.) -->
+                <action android:name="android.intent.action.INSERT" /> <!-- Insert new data into a content provider -->
+                <action android:name="android.intent.action.INSERT_OR_EDIT" /> <!-- Insert or edit an item (e.g., contact) -->
+                <action android:name="android.intent.action.INSTALL_FAILURE" /> <!-- Notify app install failure -->
+                <action android:name="android.intent.action.LAUNCH_CAPTURE_CONTENT_ACTIVITY_FOR_NOTE" /> <!-- Capture content (used in note-taking apps) -->
+                <action android:name="android.intent.action.MAIN" /> <!-- Entry point of an app (main launcher activity) -->
+                <action android:name="android.intent.action.MANAGE_NETWORK_USAGE " /> <!-- Open settings for network usage management -->
+                <action android:name="android.intent.action.MANAGE_UNUSED_APPS " /> <!-- Manage unused apps and their permissions -->
+                <action android:name="android.intent.action.OPEN_DOCUMENT " /> <!-- Open an existing document via file picker -->
+                <action android:name="android.intent.action.OPEN_DOCUMENT_TREE" /> <!-- Open a folder/tree using file picker -->
+                <action android:name="android.intent.action.PASTE " /> <!-- Paste clipboard data (e.g., in editors) -->
+                <action android:name="android.intent.action.PICK" /> <!-- Pick an item from a data source -->
+                <action android:name="android.intent.action.PICK_ACTIVITY" /> <!-- Pick an activity from available apps -->
+                <action android:name="android.intent.action.POWER_USAGE_SUMMARY " /> <!-- Show power usage summary screen -->
+                <action android:name="android.intent.action.PROCESS_TEXT " /> <!-- Process selected text via text-processing apps -->
+                <action android:name="android.intent.action.QUICK_VIEW" /> <!-- Quickly preview a file (e.g., PDF, image) -->
+                <action android:name="android.intent.action.RUN" /> <!-- Run a particular component (used internally) -->
+                <action android:name="android.intent.action.SAFETY_CENTER" /> <!-- Open system safety center dashboard -->
+                <action android:name="android.intent.action.SEARCH" /> <!-- Perform a search -->
+                <action android:name="android.intent.action.SEARCH_LONG_PRESS" /> <!-- Triggered by long-pressing search button -->
+                <action android:name="android.intent.action.SEND" /> <!-- Send a single piece of data (text, image, etc.) -->
+                <action android:name="android.intent.action.SEND_MULTIPLE" /> <!-- Send multiple items (images, files, etc.) -->
+                <action android:name="android.intent.action.SENDTO" /> <!-- Send data to a specific recipient (like SMS or email) -->
+                <action android:name="android.intent.action.SET_WALLPAPER " /> <!-- Set device wallpaper -->
+                <action android:name="android.intent.action.SHOW_APP_INFO " /> <!-- Show detailed info/settings of an app -->
+                <action android:name="android.intent.action.SHOW_WORK_APPS" /> <!-- Show apps related to work profile -->
+                <action android:name="android.intent.action.SYNC" /> <!-- Sync data (used in content sync adapters) -->
+                <action android:name="android.intent.action.SYSTEM_TUTORIAL" /> <!-- Start system tutorial or onboarding -->
+                <action android:name="android.intent.action.TRANSLATE" /> <!-- Translate selected content -->
+                <action android:name="android.intent.action.VIEW" /> <!-- View data (URL, contact, file, etc.) -->
+                <action android:name="android.intent.action.VIEW_LOCUS" /> <!-- View contextual data (e.g., task snapshot) -->
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE " /> <!-- Show permission usage stats -->
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE_FOR_PERIOD" /> <!-- Show permission usage over time -->
+                <action android:name="android.intent.action.VOICE_COMMAND " /> <!-- Start a voice command interaction -->
+                <action android:name="android.intent.action.WEB SEARCH" /> <!-- Perform a web search -->
+                <action android:name="android.intent.action.INSTALL_PACKAGE " /> <!-- Install a package from APK -->
+                <action android:name="android.intent.action.UNINSTALL_PACKAGE" /> <!-- Uninstall an installed package -->
+
+                <category android:name="android.intent.category.ACCESSIBILITY_SHORTCUT_TARGET" /> <!-- Used to identify accessibility shortcut targets -->
+                <category android:name="android.intent.category.ALTERNATIVE" /> <!-- Used for alternative actions for a data type, often for context menus -->
+                <category android:name="android.intent.category.APP_BROWSER" /> <!-- Declares the app as a web browser -->
+                <category android:name="android.intent.category.APP_CALCULATOR" /> <!-- Declares the app as a calculator -->
+                <category android:name="android.intent.category.APP_CALENDAR" /> <!-- Declares the app as a calendar -->
+                <category android:name="android.intent.category.APP_CONTACTS" /> <!-- Declares the app as a contacts manager -->
+                <category android:name="android.intent.category.APP_EMAIL" /> <!-- Declares the app as an email client -->
+                <category android:name="android.intent.category.APP_FILES" /> <!-- Declares the app as a file manager -->
+                <category android:name="android.intent.category.APP_FITNESS" /> <!-- Declares the app as a fitness tracker or health app -->
+                <category android:name="android.intent.category.APP_GALLERY" /> <!-- Declares the app as a gallery or photo viewer -->
+                <category android:name="android.intent.category.APP_MAPS" /> <!-- Declares the app as a maps/navigation tool -->
+                <category android:name="android.intent.category.APP_MARKET" /> <!-- Declares the app as a market/store (e.g., Play Store) -->
+                <category android:name="android.intent.category.APP_MESSAGING" /> <!-- Declares the app as a messaging app -->
+                <category android:name="android.intent.category.APP_MUSIC" /> <!-- Declares the app as a music player -->
+                <category android:name="android.intent.category.APP_WEATHER" /> <!-- Declares the app as a weather application -->
+                <category android:name="android.intent.category.BROWSABLE" /> <!-- Allows activities to be opened from a browser (e.g., via links) -->
+                <category android:name="android.intent.category.CAR_DOCK" /> <!-- Declares the activity as the interface for car dock mode -->
+                <category android:name="android.intent.category.CAR_MODE" /> <!-- Indicates the activity supports car mode -->
+                <category android:name="android.intent.category.DEFAULT" /> <!-- Used to declare the default category for an activity to receive implicit intents -->
+                <category android:name="android.intent.category.DESK_DOCK" /> <!-- Declares the activity as the interface for desk dock mode -->
+                <category android:name="android.intent.category.DEVELOPMENT_PREFERENCE" /> <!-- Used to show development settings/preferences -->
+                <category android:name="android.intent.category.EMBED" /> <!-- Allows activity to be embedded in another activity (e.g., with `ActivityView`) -->
+                <category android:name="android.intent.category.HE_DESK_DOCK" /> <!-- High-end desk dock mode (for special hardware) -->
+                <category android:name="android.intent.category.HOME" /> <!-- Declares the activity as a launcher home screen -->
+                <category android:name="android.intent.category.INFO" /> <!-- Declares an activity that provides information about a specific item -->
+                <category android:name="android.intent.category.LAUNCHER" /> <!-- Makes the activity appear in the launcher as an app entry -->
+                <category android:name="android.intent.category.LE_DESK_DOCK" /> <!-- Low-end desk dock mode (older hardware) -->
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" /> <!-- Declares the activity for Android TV (Leanback) launchers -->
+                <category android:name="android.intent.category.MONKEY" /> <!-- Used by the Android testing tool “monkey” to identify activities for testing -->
+                <category android:name="android.intent.category.OPENABLE" /> <!-- Identifies activities that can open files via a file picker -->
+                <category android:name="android.intent.category.PREFERENCE" /> <!-- Declares the activity as a settings/preferences screen -->
+                <category android:name="android.intent.category.SECONDARY_HOME" /> <!-- Used for activities that act as a secondary home screen (e.g., custom launchers) -->
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" /> <!-- Indicates this is the preferred/selected action for a particular data -->
+                <category android:name="android.intent.category.TAB" /> <!-- Indicates the activity is part of a tabbed UI layout -->
+                <category android:name="android.intent.category.TYPED_OPENABLE" /> <!-- Like OPENABLE but with MIME type restrictions (e.g., only images or PDFs) -->
+                <category android:name="android.intent.category.VOICE" /> <!-- Declares the activity supports launching via voice interaction -->
+                <category android:name="android.intent.category.VR_HOME" /> <!-- Declares an activity as the VR home experience -->
+
+                <data android:scheme="http" android:host="www.google.com"/> <!-- Local/insecure web links -->
+                <data android:scheme="https" android:host="www.google.com"/> <!-- Secure web links -->
+                <data android:scheme="tel"/> <!-- Phone dialer intent (e.g., tel:+1234567890) -->
+                <data android:scheme="sms"/> <!-- SMS message intent -->
+                <data android:scheme="smsto"/> <!-- SMS message intent to address -->
+                <data android:scheme="mailto"/> <!-- Email intent to ID -->
+                <data android:scheme="geo"/> <!-- Map/geolocation (e.g., geo:0,0?q=places) -->
+                <data android:scheme="market"/> <!-- Google Play Store links -->
+                <data android:scheme="package"/> <!-- Package manager intent (used in installer) -->
+                <data android:scheme="content"/> <!-- Content provider (e.g., from MediaStore or FileProvider) -->
+                <data android:scheme="content" android:mimeType="vnd.android.cursor.item/contact"/> <!-- Specific contact type -->
+                <data android:scheme="file" android:mimeType="application/pdf"/> <!-- File access with specific type -->
+                <data android:scheme="ftp"/> <!-- FTP links -->
+                <data android:scheme="data"/> <!-- Generic data URI scheme -->
+                <data android:scheme="app"/> <!-- Used internally or with deep linking -->
+                <data android:scheme="intent"/> <!-- Used in intent-based URLs -->
+                <data android:scheme="android-app"/> <!-- Used in app links (Android App Links verification) -->
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
