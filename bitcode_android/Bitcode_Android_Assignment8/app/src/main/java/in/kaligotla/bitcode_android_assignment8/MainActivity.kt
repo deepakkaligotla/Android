@@ -3,15 +3,10 @@ package `in`.kaligotla.bitcode_android_assignment8
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import `in`.kaligotla.bitcode_android_assignment8.databinding.ActivityMainBinding
 
@@ -50,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         val cartIcon = actionView?.findViewById<ImageView>(R.id.cart_icon)
         updateCartBadge()
         cartIcon?.setOnClickListener {
-            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+            startActivity(Intent(this, CartActivity::class.java))
         }
         return true
     }

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import `in`.kaligotla.test2.databinding.ViewHolderTodoBinding
 
 class ToDoAdapter(var todos: ArrayList<ToDo>): RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
-
     inner class ToDoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var viewHolderTodoBinding = ViewHolderTodoBinding.bind(itemView)
     }

@@ -1,5 +1,7 @@
 package `in`.kaligotla.imagesliderdialog1
 
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import `in`.kaligotla.imagesliderdialog1.databinding.ActivityMainBinding

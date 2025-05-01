@@ -5,16 +5,15 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView.OnQueryTextListener
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.search.SearchView
 import `in`.kaligotla.filemanagerassignment.databinding.ActivityFileManagerBinding
 import java.io.File
 
@@ -31,7 +30,8 @@ class FileManagerActivity : AppCompatActivity(){
         setContentView(binding.root)
         initPermissions()
         initListeners()
-        setupMenu()
+        supportActionBar?.title = ""
+        actionBar?.title = ""
         val rootDir = File("/storage/emulated/0")
         navStack.add(rootDir)
         fileManagerAdapter = FileManagerAdapter(rootDir, showHidden) { clickedDir ->
@@ -39,8 +39,8 @@ class FileManagerActivity : AppCompatActivity(){
             fileManagerAdapter.setData(clickedDir, showHidden)
         }
         fileManagerAdapter.onSelectionChanged = {
-            this.selectedFiles = it.toMutableList()
-            toggleOptionsMenuVisibility(selectedFiles)
+            toggleOptionsMenuVisibility(it)
+            Log.e("onSelectionChanged", it.toString())
         }
         binding.fileManagerRecyclerView.layoutManager = GridLayoutManager(this, 4)
         binding.fileManagerRecyclerView.adapter = fileManagerAdapter
@@ -62,12 +62,35 @@ class FileManagerActivity : AppCompatActivity(){
         }
     }
 
-    private fun setupMenu() {
-        val materialToolbar: MaterialToolbar = binding.myToolbar
-        materialToolbar.setOnMenuItemClickListener {
+    private fun updateButtonText() {
+        if (showHidden) {
+            binding.btnShowHidden.text = "🙈"
+        } else {
+            binding.btnShowHidden.text = "🐵"
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        val searchItem = menu?.findItem(R.id.app_bar_search)
+        val searchView = searchItem?.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { fileManagerAdapter.setSearchResults(searchFilesRecursively(navStack.last(),it)) }
+                return true
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { fileManagerAdapter.setSearchResults(searchFilesRecursively(navStack.last(),it)) }
+                return true
+            }
+        })
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        item.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_delete -> {
-                    val selectedFiles = fileManagerAdapter.getSelectedItems()
                     if (selectedFiles.isEmpty()) {
                         Toast.makeText(this, "No items selected", Toast.LENGTH_SHORT).show()
                     } else {
@@ -111,41 +134,19 @@ class FileManagerActivity : AppCompatActivity(){
                 else -> false
             }
         }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        Log.e("onPrepareOptionsMenu", selectedFiles.toString())
+        menu?.findItem(R.id.action_copy)?.isVisible = selectedFiles.isNotEmpty()
+        menu?.findItem(R.id.action_delete)?.isVisible = selectedFiles.isNotEmpty()
+        menu?.findItem(R.id.action_rename)?.isVisible = selectedFiles.size == 1
+        return super.onPrepareOptionsMenu(menu)
     }
 
     private fun toggleOptionsMenuVisibility(selectedItems: List<File>) {
-        if (selectedItems.isNotEmpty()) {
-            binding.myToolbar.menu.findItem(R.id.action_copy).isVisible = true
-            binding.myToolbar.menu.findItem(R.id.action_delete)?.isVisible = true
-            if (selectedItems.size == 1) {
-                binding.myToolbar.menu.findItem(R.id.action_rename)?.isVisible = true
-            } else {
-                binding.myToolbar.menu.findItem(R.id.action_rename)?.isVisible = false
-            }
-        } else {
-            binding.myToolbar.menu.findItem(R.id.action_copy)?.isVisible = false
-            binding.myToolbar.menu.findItem(R.id.action_delete)?.isVisible = false
-            binding.myToolbar.menu.findItem(R.id.action_rename)?.isVisible = false
-        }
         invalidateOptionsMenu()
-    }
-
-    private fun updateButtonText() {
-        if (showHidden) {
-            binding.btnShowHidden.text = "🙈"
-        } else {
-            binding.btnShowHidden.text = "🐵"
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.toolbar_menu, menu)
-        val searchItem = menu?.findItem(R.id.app_bar_search)
-        val searchView = searchItem?.actionView as SearchView
-        fileManagerAdapter.setSearchResults(searchFilesRecursively(navStack.last(),
-            searchView.text.toString()
-        ))
-        return true
     }
 
     private fun searchFilesRecursively(dir: File, keyword: String): List<File> {

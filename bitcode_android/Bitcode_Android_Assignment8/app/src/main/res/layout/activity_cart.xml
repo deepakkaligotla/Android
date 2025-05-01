@@ -12,18 +12,18 @@
         android:id="@+id/recyclerViewCart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
-        android:overScrollMode="never"
-        android:layout_marginTop="10dp"/>
+        android:overScrollMode="never" />
 
     <TextView
         android:id="@+id/textViewTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="Total: ₹0.00"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnCheckout"

@@ -9,31 +9,17 @@
     android:fitsSystemWindows="true"
     tools:context=".FileManagerActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:menu="@menu/toolbar_menu"
-            app:navigationIcon="@drawable/ic_home"
-            android:id="@+id/my_toolbar" />
-    </com.google.android.material.appbar.AppBarLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/fileManagerRecyclerView" />
+        android:id="@+id/fileManagerRecyclerView"
+        android:layout_margin="10dp"/>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btnShowHidden"
         android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:backgroundTint="@color/transparent"
         android:textSize="20sp"

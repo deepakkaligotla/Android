@@ -34,7 +34,7 @@ class ProductDetailsActivity : AppCompatActivity() {
         activityProductDetailsBinding.productRatingCount.text = "(${selectedProduct.ratingCount})"
         activityProductDetailsBinding.productDescription.text = selectedProduct.description
         activityProductDetailsBinding.btnAddToCart.setOnClickListener {
-
+            CartManager.addToCart(selectedProduct)
         }
     }
 }

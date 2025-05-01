@@ -1,7 +1,10 @@
+import java.math.BigInteger
+import java.util.Random
+
 fun main() {
     println(missingNumberInSequence(arrayOf(1,2,4,5,6)))
     for(num in removeDuplicatesFromArray(arrayOf(1,2,2,3,5,8,1))) println(num)
-    println("Is 153 Armstrong: ${isArmstrong(153)}")
+    println("Is 371 Armstrong: ${isArmstrong(371)}")
     printRightAngledTriangle(5)
     characterSequenceInString("Kaligotla Uma Sai Deepak")
     println()
@@ -20,6 +23,9 @@ fun main() {
     println(mergeAndSort(intArrayOf(2,4), intArrayOf(1, 3)))
     println(countWords("Kaligotla Uma Sai Deepak"))
     println(diagonalSum(arrayOf(intArrayOf(1,2,3), intArrayOf(4,5,6), intArrayOf(7,8,9))))
+    println(sumWithoutPlus(1,5))
+    println(checkIfPrime(BigInteger.TWO.pow(BigInteger.valueOf(8258).intValueExact()).subtract(BigInteger.ONE)))
+    println(rotateRight(intArrayOf(1,2,3,4,5), 2).toList())
 }
 
 fun missingNumberInSequence(arr: Array<Int>) : Int {
@@ -41,7 +47,6 @@ fun removeDuplicatesFromArray(arr: Array<Int>): IntArray {
 fun isArmstrong(n: Int): Boolean {
     var num = n
     var sum = 0
-
     while(num != 0) {
         val lastDigit = num%10
         sum = sum + Math.pow(lastDigit.toDouble(), numOfDigits(n).toDouble()).toInt()
@@ -152,4 +157,48 @@ fun diagonalSum(input: Array<IntArray>): Int {
 
     }
     return 0
+}
+
+//sum numbers without using '+'
+fun sumWithoutPlus(a: Int, b: Int): Int {
+    return if (b == 0) a else sumWithoutPlus(a xor b, (a and b) shl 1)
+}
+
+fun checkIfPrime(n: BigInteger, k: Int = 5): Boolean {
+    if (n == BigInteger.valueOf(2) || n == BigInteger.valueOf(3)) return true
+    if (n < BigInteger.valueOf(2) || n % BigInteger.valueOf(2) == BigInteger.ZERO) return false
+    var r = 0
+    var d = n - BigInteger.ONE
+    while (d % BigInteger.valueOf(2) == BigInteger.ZERO) {
+        d /= BigInteger.valueOf(2)
+        r++
+    }
+    val random = Random()
+    for (i in 0 until k) {
+        val a = BigInteger(n.bitLength(), random)
+            .mod(n - BigInteger.valueOf(4)) + BigInteger.valueOf(2)
+        var x = a.modPow(d, n)
+        println("Checking with base: $a, x = $x")
+        if (x == BigInteger.ONE || x == n - BigInteger.ONE) continue
+        var continueOuter = false
+        for (j in 0 until r - 1) {
+            x = x.modPow(BigInteger.valueOf(2), n)
+            if (x == n - BigInteger.ONE) {
+                continueOuter = true
+                break
+            }
+        }
+        if (continueOuter) continue
+        return false
+    }
+    return true
+}
+
+fun rotateRight(arr: IntArray, k: Int): IntArray {
+    val n = arr.size
+    val result = IntArray(n)
+    for(i in arr.indices) {
+        result[(i + k) % n] = arr[i]
+    }
+    return result
 }

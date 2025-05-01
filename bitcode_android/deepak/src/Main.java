@@ -10,5 +10,7 @@ public class Main {
 
         MathsOp m2 = new MathsOp(2,3);
         System.out.println(m2.add());
+        int number = MyClass.getSecretNumber();
+        System.out.println(number);
     }
 }

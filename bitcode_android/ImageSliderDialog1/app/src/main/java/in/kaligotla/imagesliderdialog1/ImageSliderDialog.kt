@@ -1,8 +1,11 @@
 package `in`.kaligotla.imagesliderdialog1
 
 import android.app.Dialog
+import android.app.Fragment
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.AdapterView
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.findViewTreeLifecycleOwner
