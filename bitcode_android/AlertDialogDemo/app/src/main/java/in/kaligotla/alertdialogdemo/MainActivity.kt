@@ -27,28 +27,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(activityMainBinding.root)
 
         activityMainBinding.alertDialog.setOnClickListener {
-            val builder: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
+            val builder: AlertDialog.Builder = AlertDialog.Builder(this)
             builder.setIcon(R.drawable.ic_launcher_background)
             builder.setTitle("Title")
             builder.setMessage("Message")
             builder.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
-                Toast.makeText(this@MainActivity,"$dialog -- $which", Toast.LENGTH_SHORT).show() //which -- 1 -- Positive
+                Toast.makeText(this,"$dialog -- $which", Toast.LENGTH_SHORT).show() //which -- 1 -- Positive
             })
             builder.setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
-                Toast.makeText(this@MainActivity,"$dialog -- $which", Toast.LENGTH_SHORT).show() //which -- 2 -- Negative
+                Toast.makeText(this,"$dialog -- $which", Toast.LENGTH_SHORT).show() //which -- 2 -- Negative
             })
             builder.setNeutralButton("Maybe", DialogInterface.OnClickListener { dialog, which ->
-                Toast.makeText(this@MainActivity,"$dialog -- $which", Toast.LENGTH_SHORT).show() //which -- 3 -- Neutral
+                Toast.makeText(this,"$dialog -- $which", Toast.LENGTH_SHORT).show() //which -- 3 -- Neutral
             })
             val alertDialog: AlertDialog = builder.create()
             alertDialog.show()
         }
 
         activityMainBinding.date.setOnClickListener {
-            val datePickerDialog: DatePickerDialog = DatePickerDialog(
-                this@MainActivity,
+            val datePickerDialog = DatePickerDialog(
+                this,
                 DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                    Toast.makeText(this@MainActivity,"mm/dd/yyyy - $dayOfMonth/${month+1}/$year", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"mm/dd/yyyy - $dayOfMonth/${month+1}/$year", Toast.LENGTH_SHORT).show()
                 },
                 LocalDate.now().year,
                 LocalDate.now().monthValue-1,
@@ -58,10 +58,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         activityMainBinding.time.setOnClickListener {
-            val timePickerDialog: TimePickerDialog = TimePickerDialog(
-                this@MainActivity,
+            val timePickerDialog = TimePickerDialog(
+                this,
                 TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                    Toast.makeText(this@MainActivity, "hh:mm - $hourOfDay:$minute", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "hh:mm - $hourOfDay:$minute", Toast.LENGTH_SHORT).show()
                 },
                 LocalTime.now().hour,
                 LocalTime.now().minute,

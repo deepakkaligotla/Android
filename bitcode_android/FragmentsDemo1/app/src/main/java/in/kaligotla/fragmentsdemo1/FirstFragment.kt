@@ -19,6 +19,11 @@ class FirstFragment : Fragment() {
     }
     lateinit var onNameSetListener: OnNameSetListener
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setRetainInstance(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

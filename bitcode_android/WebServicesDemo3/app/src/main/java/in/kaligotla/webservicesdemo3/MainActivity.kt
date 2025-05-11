@@ -21,28 +21,28 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-//        CoroutineScope(Dispatchers.IO).launch {
-//            val url = URL("https://fakestoreapi.com/products")
-//            val connection = url.openConnection() as HttpsURLConnection
-//
-//            connection.connect()
-//
-//            var inStream = connection.inputStream
-//            val byteArray = ByteArray(1024 * 2)
-//            var responseBuffer = StringBuffer()
-//            var count: Int
-//            count = connection.inputStream.read(byteArray)
-//
-//            while (count != -1) {
-//                responseBuffer.append(String(byteArray, 0, count))
-//                count = inStream.read(byteArray)
-//            }
-//            inStream.close()
-//            var jsonResponse = JSONArray(responseBuffer.toString())
-//            for (i in 0..jsonResponse.length() - 1) {
-//                Log.e("", jsonResponse[i].toString())
-//            }
-//        }
+        CoroutineScope(Dispatchers.IO).launch {
+            val url = URL("https://fakestoreapi.com/products")
+            val connection = url.openConnection() as HttpsURLConnection
+
+            connection.connect()
+
+            var inStream = connection.inputStream
+            val byteArray = ByteArray(1024 * 2)
+            var responseBuffer = StringBuffer()
+            var count: Int
+            count = inStream.read(byteArray)
+
+            while (count != -1) {
+                responseBuffer.append(String(byteArray, 0, count))
+                count = inStream.read(byteArray)
+            }
+            inStream.close()
+            var jsonResponse = JSONArray(responseBuffer.toString())
+            for (i in 0..jsonResponse.length() - 1) {
+                Log.e("", jsonResponse[i].toString())
+            }
+        }
 //
 //        CoroutineScope(Dispatchers.IO).launch {
 //            val url = URL("https://fakestoreapi.com/users")
